@@ -7,4 +7,4 @@ export * from "./reporter/DefaultReporter";
 export * from "./reporter/Reporter";
 import asp from "./cli";
 export { asp };
-//# sourceMappingURL=index.d.ts.map
+//# sourceMappingURL=as-pect.d.ts.map

@@ -738,6 +738,10 @@ declare module "util/IConfiguration" {
          * output.
          */
         reporter?: TestReporter;
+        /**
+         * The compiler args flag logs all the compiler inputs to stdout.
+         */
+        compilerFlags?: boolean;
     }
 }
 declare module "cli" {

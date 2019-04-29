@@ -51,6 +51,8 @@ module.exports = {
     /** Report the variance. */
     reportVariance: false,
   },
+  /** Report the compiler flags to stdout. */
+  compilerFlags: false,
   /**
    * Add a custom reporter here if you want one. The following example is in typescript.
    *

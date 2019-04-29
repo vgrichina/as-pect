@@ -68,6 +68,7 @@ This is the CLI help displayed when using the `asp` help flag.
     asp -h
     asp --types                         Copy the types file to assembly/__tests__/as-pect.d.ts
     asp -t
+    asp --compiler-flags                Output the compiler flags to the console before each compilation.
 
   TEST OPTIONS
     --reporter                           Define the reporter to be used. (Default: DefaultTestReporter)

@@ -53,6 +53,8 @@ module.exports = {
     /** Report the variance. */
     reportVariance: true,
   },
+  /** Report the compiler flags to stdout. */
+  compilerFlags: true,
   /** Use the summary reporter. */
   reporter: new SummaryReporter(),
 };

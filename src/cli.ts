@@ -130,6 +130,7 @@ export function asp(args: string[]) {
     {bold.green asp} -h
     {bold.green asp} --types                         Copy the types file to assembly/__tests__/as-pect.d.ts
     {bold.green asp} -t
+    {bold.green asp} --compiler-flags                Output the compiler flags to the console before each compilation.
 
   {bold.blueBright TEST OPTIONS}
     {bold.green --reporter}                           Define the reporter to be used. {yellow (Default: DefaultTestReporter)}
@@ -239,6 +240,8 @@ export function asp(args: string[]) {
       }
     }
 
+    if (yargs.argv.compilerFlags) configuration.compilerFlags = yargs.argv.compilerFlags !== "false";
+
     // include all the file globs
     console.log(chalk`{bgWhite.black [Log]} Including files: ${include.join(", ")}`);
 
@@ -294,7 +297,13 @@ export function asp(args: string[]) {
 
     // for each file, synchronously run each test
     Array.from(testEntryFiles).forEach((file: string, i: number) => {
-      asc.main([file, ...Array.from(addedTestEntryFiles), ...flagList], {
+      const compilerArgs = [file, ...Array.from(addedTestEntryFiles), ...flagList];
+
+      if (configuration.compilerFlags) {
+        console.log("asc", ...compilerArgs);
+      }
+
+      asc.main(compilerArgs, {
         stdout: process.stdout as any, // use any type to quelch error
         stderr: process.stderr as any,
         writeFile(name: string, contents: Uint8Array) {
